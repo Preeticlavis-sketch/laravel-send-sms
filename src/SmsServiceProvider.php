@@ -13,8 +13,8 @@ class SmsServiceProvider extends ServiceProvider
     {
         // Publish the config file to the user's Laravel project
         $this->publishes([
-            __DIR__.'/../config/sms.php' => config_path('sms.php'),
-        ], 'config');
+    __DIR__.'/../config/sms.php' => config_path('sms.php'),
+], 'sms-config');
     }
 
     /**
@@ -23,10 +23,10 @@ class SmsServiceProvider extends ServiceProvider
     public function register()
     {
         // Merge default config
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/sms.php',
-            'sms'
-        );
+       $this->mergeConfigFrom(
+    __DIR__.'/../config/sms.php',
+    'sms'
+);
 
         // Bind SmsManager to the container
         $this->app->singleton('sms.sender', function ($app) {
